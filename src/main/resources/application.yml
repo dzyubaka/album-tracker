@@ -1,1 +1,6 @@
-spring.application.name: album-tracker
+spring:
+  application.name: album-tracker
+  datasource:
+    url: jdbc:postgresql://localhost/album_tracker
+    username: album_tracker
+  jpa.hibernate.ddl-auto: update
