@@ -1,10 +1,10 @@
 package dev.dzyuba.albumtracker.band;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import dev.dzyuba.albumtracker.album.Album;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -14,4 +14,7 @@ public class Band {
     private Long id;
 
     private String name;
+
+    @OneToMany(mappedBy = "band")
+    private List<Album> albums;
 }
