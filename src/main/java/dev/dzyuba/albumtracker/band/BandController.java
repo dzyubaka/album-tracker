@@ -30,4 +30,10 @@ public class BandController {
     public AlbumResponse albums(@PathVariable Long bandId, @RequestBody Album album) {
         return albumService.save(bandId, album);
     }
+
+    @PutMapping("/{bandId}/albums/{albumId}")
+    public AlbumResponse albums(@PathVariable Long bandId, @PathVariable Long albumId, @RequestBody Album album) {
+        album.setId(albumId);
+        return albumService.save(bandId, album);
+    }
 }
