@@ -16,4 +16,6 @@ public class Album {
     private Band band;
 
     private String name;
+
+    private boolean listened;
 }
