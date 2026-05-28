@@ -22,4 +22,8 @@ public class AlbumService {
         album = albumRepository.save(album);
         return new AlbumResponse(album.getId(), album.getName(), album.isListened());
     }
+
+    public void deleteById(Long albumId) {
+        albumRepository.deleteById(albumId);
+    }
 }

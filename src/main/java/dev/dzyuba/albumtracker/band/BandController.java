@@ -36,4 +36,9 @@ public class BandController {
         album.setId(albumId);
         return albumService.save(bandId, album);
     }
+
+    @DeleteMapping("/{bandId}/albums/{albumId}")
+    public void albums(@PathVariable Long bandId, @PathVariable Long albumId) {
+        albumService.deleteById(albumId);
+    }
 }
