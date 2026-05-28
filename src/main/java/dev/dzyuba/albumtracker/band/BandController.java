@@ -21,13 +21,13 @@ public class BandController {
         return bandService.findAll();
     }
 
-    @GetMapping("/{id}/albums")
-    public List<AlbumResponse> albums(@PathVariable Long id) {
-        return albumService.findByBandId(id);
+    @GetMapping("/{bandId}/albums")
+    public List<AlbumResponse> albums(@PathVariable Long bandId) {
+        return albumService.findByBandId(bandId);
     }
 
-    @PostMapping("/{id}/albums")
-    public AlbumResponse albums(@PathVariable Long id, @RequestBody Album album) {
-        return albumService.save(id, album);
+    @PostMapping("/{bandId}/albums")
+    public AlbumResponse albums(@PathVariable Long bandId, @RequestBody Album album) {
+        return albumService.save(bandId, album);
     }
 }
