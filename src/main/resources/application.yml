@@ -4,3 +4,4 @@ spring:
     url: jdbc:postgresql://localhost/album_tracker
     username: album_tracker
   jpa.hibernate.ddl-auto: update
+  jackson.default-property-inclusion: non_null
