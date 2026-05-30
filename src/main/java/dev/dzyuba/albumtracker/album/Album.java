@@ -4,6 +4,8 @@ import dev.dzyuba.albumtracker.band.Band;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 @Entity
 public class Album {
@@ -17,5 +19,5 @@ public class Album {
 
     private String name;
 
-    private boolean listened;
+    private LocalDateTime listened;
 }
