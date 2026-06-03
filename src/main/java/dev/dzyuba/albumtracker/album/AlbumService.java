@@ -14,13 +14,13 @@ public class AlbumService {
     private final AlbumRepository albumRepository;
 
     public List<AlbumResponse> findByBandId(Long bandId) {
-        return albumRepository.findByBandId(bandId).stream().map(a -> new AlbumResponse(a.getId(), a.getName(), a.getListened())).toList();
+        return albumRepository.findByBandId(bandId).stream().map(a -> new AlbumResponse(a.getId(), a.getName(), a.getReleased(), a.getListened())).toList();
     }
 
     public AlbumResponse save(Long bandId, Album album) {
         album.setBand(bandRepository.findById(bandId).orElseThrow());
         album = albumRepository.save(album);
-        return new AlbumResponse(album.getId(), album.getName(), album.getListened());
+        return new AlbumResponse(album.getId(), album.getName(), album.getReleased(), album.getListened());
     }
 
     public void deleteById(Long albumId) {

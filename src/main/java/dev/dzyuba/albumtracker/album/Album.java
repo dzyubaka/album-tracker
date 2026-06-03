@@ -4,6 +4,7 @@ import dev.dzyuba.albumtracker.band.Band;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -18,6 +19,8 @@ public class Album {
     private Band band;
 
     private String name;
+
+    private LocalDate released;
 
     private LocalDateTime listened;
 }
