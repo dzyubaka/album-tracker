@@ -14,7 +14,8 @@ public class AlbumService {
     private final AlbumRepository albumRepository;
 
     public List<AlbumResponse> findByBandId(Long bandId) {
-        return albumRepository.findByBandId(bandId).stream().map(a -> new AlbumResponse(a.getId(), a.getName(), a.getReleased(), a.getListened())).toList();
+        return albumRepository.findByBandIdOrderByReleased(bandId).stream().map(a ->
+                new AlbumResponse(a.getId(), a.getName(), a.getReleased(), a.getListened())).toList();
     }
 
     public AlbumResponse save(Long bandId, Album album) {
