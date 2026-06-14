@@ -14,7 +14,7 @@ services:
       - "5432:5432"
     environment:
       POSTGRES_DB: album_tracker
-      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_PASSWORD: postgres
 
 volumes:
   postgres_data:
