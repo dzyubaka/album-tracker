@@ -1,7 +1,7 @@
 spring:
   application.name: album-tracker
   datasource:
-    url: jdbc:postgresql://localhost/album_tracker
+    url: ${DATABASE_URL:jdbc:postgresql://localhost/album_tracker}
     username: album_tracker
   jpa.hibernate.ddl-auto: update
   jackson.default-property-inclusion: non_null
