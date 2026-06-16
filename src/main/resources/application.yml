@@ -2,7 +2,7 @@ spring:
   application.name: album-tracker
   datasource:
     url: ${DATABASE_URL:jdbc:postgresql://localhost/album_tracker}
-    username: album_tracker
-    password: album_tracker
+    username: ${DATABASE_USERNAME:album_tracker}
+    password: ${DATABASE_PASSWORD:album_tracker}
   jpa.hibernate.ddl-auto: update
   jackson.default-property-inclusion: non_null
