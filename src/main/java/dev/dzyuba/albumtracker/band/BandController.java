@@ -21,6 +21,11 @@ public class BandController {
         return bandService.findAll();
     }
 
+    @PostMapping
+    public BandResponse save(@RequestBody Band band) {
+        return bandService.save(band);
+    }
+
     @GetMapping("/{bandId}/albums")
     public List<AlbumResponse> albums(@PathVariable Long bandId) {
         return albumService.findByBandId(bandId);
