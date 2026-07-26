@@ -9,4 +9,7 @@ public record AlbumResponse(
     LocalDate released,
     LocalDateTime listened
 ) {
+    static AlbumResponse from(Album album) {
+        return new AlbumResponse(album.getId(), album.getName(), album.getReleased(), album.getListened());
+    }
 }
