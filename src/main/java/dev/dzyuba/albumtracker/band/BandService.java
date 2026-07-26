@@ -15,6 +15,10 @@ public class BandService {
         return bandRepository.findAll(Sort.by("name")).stream().map(BandResponse::from).toList();
     }
 
+    public BandResponse findById(Long bandId) {
+        return BandResponse.from(bandRepository.findById(bandId).orElseThrow());
+    }
+
     public BandResponse save(Band band) {
         return BandResponse.from(bandRepository.save(band));
     }
