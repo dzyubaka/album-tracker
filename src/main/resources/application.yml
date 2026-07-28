@@ -1,3 +1,9 @@
+server:
+  port: ${SERVER_PORT:}
+  ssl:
+    enabled: ${SSL_ENABLED:false}
+    key-store: keystore.p12
+    key-store-password: ${SSL_KEYSTORE_PASSWORD:}
 spring:
   application.name: album-tracker
   datasource:
