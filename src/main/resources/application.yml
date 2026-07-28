@@ -4,6 +4,13 @@ server:
     enabled: ${SSL_ENABLED:false}
     key-store: keystore.p12
     key-store-password: ${SSL_KEYSTORE_PASSWORD:}
+  tomcat.accesslog:
+    enabled: true
+    directory: /dev
+    prefix: stdout
+    suffix:
+    file-date-format:
+    buffered: false
 spring:
   application.name: album-tracker
   datasource:
