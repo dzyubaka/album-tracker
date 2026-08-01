@@ -4,7 +4,8 @@ docker save -o album-tracker.tar album-tracker
 scp album-tracker.tar dzyuba.dev:
 ssh dzyuba.dev '
   docker load -i album-tracker.tar
-  docker compose up -d --force-recreate app
+  docker compose down app
+  docker compose up -d app
   rm album-tracker.tar
 '
 rm album-tracker.tar
