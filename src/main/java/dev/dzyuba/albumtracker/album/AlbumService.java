@@ -2,7 +2,9 @@ package dev.dzyuba.albumtracker.album;
 
 import dev.dzyuba.albumtracker.band.BandRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -24,5 +26,19 @@ public class AlbumService {
 
     public void deleteById(Long albumId) {
         albumRepository.deleteById(albumId);
+    }
+
+    public AlbumResponse update(Long bandId, Long albumId, Album album) {
+        Album oldAlbum = bandRepository.findById(bandId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND))
+                .getAlbums()
+                .stream()
+                .filter(a -> a.getId().equals(albumId))
+                .findAny()
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        oldAlbum.setName(album.getName());
+        oldAlbum.setReleased(album.getReleased());
+        oldAlbum.setListened(album.getListened());
+        return AlbumResponse.from(albumRepository.save(oldAlbum));
     }
 }
